@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Yksinkertainen lomake</title>
+    <title>Ilmoittautuminen</title>
 </head>
 <body>
-    <form id="testiLomake">
-        <label for="testiNimi">Nimi:</label><br>
-        <input type="text" id="testiNimi" name="nimi"><br>
-        <label for="testiSahkoposti">Sähköposti:</label><br>
-        <input type="email" id="testiSahkoposti" name="sahkoposti"><br><br>
-        <button type="button" onclick="lahetaTestiLomake()">Lähetä</button>
+    <form id="ilmoittautumisLomake">
+        <label for="nimi">Nimi:</label><br>
+        <input type="text" id="nimi" name="nimi"><br>
+        <label for="sahkoposti">Sähköposti:</label><br>
+        <input type="email" id="sahkoposti" name="sahkoposti"><br><br>
+        <button type="button" onclick="lahetaIlmoittautuminen()">Lähetä</button>
     </form>
 
     <script>
-        function lahetaTestiLomake() {
-            var nimi = document.getElementById("testiNimi").value;
-            var sahkoposti = document.getElementById("testiSahkoposti").value;
-            var url = "https://script.google.com/macros/s/AKfycbwMVCfkkQIXuZKysvl2jQWLhPI_qOIOLIhS9db0MuLTTii_b9GKJegt52A2UYPvS7GrRg/exec"; // Korvaa tällä oikealla URL-osoitteella
+        function lahetaIlmoittautuminen() {
+            var nimi = document.getElementById("nimi").value;
+            var sahkoposti = document.getElementById("sahkoposti").value;
+            var url = "https://script.google.com/macros/s/AKfycbydXCzMHXBTLWrK5K5q_R4qvCMoEJJ-cJ-oTN-hUxrADk50ezJgfrzZJqhysZmySXpB2A/exec"; // Korvaa tällä Google Apps Script -URL-osoitteella
 
             var data = {
                 nimi: nimi,
@@ -32,12 +32,12 @@
                 body: JSON.stringify(data)
             })
             .then(response => {
-                console.log("Testilomake lähetetty!");
-                alert("Testilomake lähetetty!");
+                console.log("Ilmoittautuminen lähetetty!");
+                alert("Ilmoittautuminen lähetetty!");
             })
             .catch(error => {
                 console.error("Virhe:", error);
-                alert("Testilomakkeen lähetys epäonnistui!");
+                alert("Ilmoittautuminen epäonnistui!");
             });
         }
     </script>
