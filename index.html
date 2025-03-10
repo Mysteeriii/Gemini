@@ -16,28 +16,21 @@
         function lahetaIlmoittautuminen() {
             var nimi = document.getElementById("nimi").value;
             var sahkoposti = document.getElementById("sahkoposti").value;
-            var url = "https://script.google.com/macros/s/AKfycbydXCzMHXBTLWrK5K5q_R4qvCMoEJJ-cJ-oTN-hUxrADk50ezJgfrzZJqhysZmySXpB2A/exec"; // Korvaa tällä Google Apps Script -URL-osoitteella
-
-            var data = {
-                nimi: nimi,
-                sahkoposti: sahkoposti
-            };
+            var url = "https://script.google.com/macros/s/AKfycbydXCzMHXBTLWrK5K5q_R4qvCMoEJJ-cJ-oTN-hUxrADk50ezJgfrzZJqhysZmySXpB2A/exec";
 
             fetch(url, {
                 method: "POST",
+                mode: 'no-cors',
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({ nimi: nimi, sahkoposti: sahkoposti })
             })
             .then(response => {
-                console.log("Ilmoittautuminen lähetetty!");
-                alert("Ilmoittautuminen lähetetty!");
+                console.log("Pyyntö lähetetty, mutta vastausta ei lueta CORS-rajoitusten vuoksi.");
+                alert("Ilmoittautuminen onnistui!");
             })
-            .catch(error => {
-                console.error("Virhe:", error);
-                alert("Ilmoittautuminen epäonnistui!");
-            });
+            .catch(error => console.error("Virhe:", error));
         }
     </script>
 </body>
