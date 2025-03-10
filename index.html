@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ilmoittautuminen</title>
+    <title>Yksinkertainen lomake</title>
 </head>
 <body>
-    <form id="ilmoittautumisLomake">
-        <label for="nimi">Nimi:</label><br>
-        <input type="text" id="nimi" name="nimi"><br>
-        <label for="sahkoposti">Sähköposti:</label><br>
-        <input type="email" id="sahkoposti" name="sahkoposti"><br><br>
-        <button type="button" onclick="lahetaIlmoittautuminen()">Lähetä</button>
+    <form id="testiLomake">
+        <label for="testiNimi">Nimi:</label><br>
+        <input type="text" id="testiNimi" name="nimi"><br>
+        <label for="testiSahkoposti">Sähköposti:</label><br>
+        <input type="email" id="testiSahkoposti" name="sahkoposti"><br><br>
+        <button type="button" onclick="lahetaTestiLomake()">Lähetä</button>
     </form>
 
     <script>
-        function lahetaIlmoittautuminen() {
-            var nimi = document.getElementById("nimi").value;
-            var sahkoposti = document.getElementById("sahkoposti").value;
+        function lahetaTestiLomake() {
+            var nimi = document.getElementById("testiNimi").value;
+            var sahkoposti = document.getElementById("testiSahkoposti").value;
             var url = "https://script.google.com/macros/s/AKfycbwMVCfkkQIXuZKysvl2jQWLhPI_qOIOLIhS9db0MuLTTii_b9GKJegt52A2UYPvS7GrRg/exec"; // Korvaa tällä oikealla URL-osoitteella
 
             var data = {
@@ -32,12 +32,12 @@
                 body: JSON.stringify(data)
             })
             .then(response => {
-                console.log("Ilmoittautuminen lähetetty!");
-                alert("Ilmoittautuminen lähetetty!");
+                console.log("Testilomake lähetetty!");
+                alert("Testilomake lähetetty!");
             })
             .catch(error => {
                 console.error("Virhe:", error);
-                alert("Ilmoittautuminen epäonnistui!");
+                alert("Testilomakkeen lähetys epäonnistui!");
             });
         }
     </script>
