@@ -4,42 +4,32 @@
     <title>Ilmoittautuminen</title>
 </head>
 <body>
-    <form id="ilmoittautumisLomake">
-        <label for="nimi">Nimi:</label><br>
-        <input type="text" id="nimi" name="nimi"><br>
-        <label for="sahkoposti">Sähköposti:</label><br>
-        <input type="email" id="sahkoposti" name="sahkoposti"><br><br>
-        <button type="button" onclick="lahetaIlmoittautuminen()">Lähetä</button>
+    <h1>Ilmoittaudu</h1>
+    <form id="signupForm">
+        <label for="name">Nimi:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Sähköposti:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <button type="submit">Lähetä</button>
     </form>
-
     <script>
-        function lahetaIlmoittautuminen() {
-            var nimi = document.getElementById("nimi").value;
-            var sahkoposti = document.getElementById("sahkoposti").value;
-            var url = "https://script.google.com/macros/s/AKfycbxb8z2TmqIIWAoTMxpZ4EezZEGvU1x5_f93zjFdxALQAZqs012KfD8LJrkAFwvazynr/exec"; // Korvaa tällä Google Apps Script -URL-osoitteella
-
-            var data = {
-                nimi: nimi,
-                sahkoposti: sahkoposti
-            };
-
-            fetch(url, {
-                method: "POST",
-                mode: 'no-cors',
+        document.getElementById('signupForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const response = await fetch('/api/signup', {
+                method: 'POST',
                 headers: {
-                    "Content-Type": "application/json"
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                console.log("Ilmoittautuminen lähetetty!");
-                alert("Ilmoittautuminen lähetetty!");
-            })
-            .catch(error => {
-                console.error("Virhe:", error);
-                alert("Ilmoittautuminen epäonnistui!");
+                body: JSON.stringify({ name, email })
             });
-        }
+            if (response.ok) {
+                alert('Ilmoittautuminen onnistui!');
+            } else {
+                alert('Ilmoittautuminen epäonnistui.');
+            }
+        });
     </script>
 </body>
 </html>
