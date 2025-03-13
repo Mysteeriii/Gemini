@@ -65,18 +65,72 @@
         gap: 10px;
     }
 
-    /* 🔴 Muut sisällöt */
-    .content { padding: 20px; max-width: 800px; margin: auto; }
-    h1 { text-align: center; }
-    ul { list-style: none; padding: 0; }
-    ul li:before { content: '✔️'; margin-right: 10px; }
+    /* 🔴 Korttimallinen sisältö */
+    .content { padding: 20px; max-width: 1000px; margin: auto; }
+
+    .card {
+      background: white;
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+
+    .card h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .content-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .content-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+    }
+
+    .content-list li:last-child {
+      border-bottom: none;
+    }
+
+    .content-list li::before {
+      content: '✔️';
+      margin-right: 10px;
+      color: green;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #357edd;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s ease;
+    }
+
+    .cta-button:hover {
+      background: #285bb5;
+    }
+
+    /* Piilotettavat osiot */
     .hidden { display: none; }
 
   </style>
 </head>
 <body>
 
-  <!-- 🔵 UUSI BANNERI TÄHÄN -->
+  <!-- 🔵 UUSI BANNERI -->
   <div class="banner">
       <div class="nav-links">
           <a href="#" onclick="showSection('myyntivalmennus')">Myyntivalmennus</a>
@@ -90,36 +144,46 @@
       </div>
   </div>
 
-  <!-- SISÄLLÖT ALKAVAT -->
+  <!-- 🔴 SISÄLLÖT ALKAVAT -->
   <div class="content">
 
-    <div id="myyntivalmennus">
+    <!-- ✅ UUSI KORTTI: Myyntivalmennus -->
+    <div id="myyntivalmennus" class="card">
         <h1>Myyntivalmennus</h1>
-        <ul>
-            <li>Myynnin 7 lainalaisuutta</li>
-            <li>Asenne ja sisäinen puhe</li>
-            <li>Tavoitteet ja ajanhallinta</li>
-            <li>Uusasiakashankinta strategiat</li>
-            <li>Asiantuntemus tuotteeseen</li>
-            <li>Kyky toimia kaikkien kanssa</li>
-            <li>Esittely ja myyntitaidot</li>
-            <li>Kaupan kloussaus taidot</li>
-            <li>Kommunikoinnin 10 sääntöä</li>
+        <p><strong>Myyntiä ja myynnin psykologiaa on tutkittu valtavasti.</strong> Tässä myyntivalmennuksessa syvennytään seitsemään huippumyyjän taitoon. Yksikään huippumyyjän ominaisuus ei ole luonteenpiirre vaan taito! Henrin kahden vuosikymmenen kokemus myynnistä on koottu selkeään valmennuspakettiin.</p>
+
+        <h3>Valmennuksen sisältö:</h3>
+        <ul class="content-list">
+          <li>Myynnin 7 lainalaisuutta</li>
+          <li>Asenne ja sisäinen puhe</li>
+          <li>Tavoitteet ja ajanhallinta</li>
+          <li>Uusasiakashankinta strategiat</li>
+          <li>Asiantuntemus tuotteeseen</li>
+          <li>Kyky toimia kaikkien kanssa</li>
+          <li>Esittely ja myyntitaidot</li>
+          <li>Kaupan kloussaus taidot</li>
+          <li>Kommunikoinnin 10 sääntöä</li>
         </ul>
+
+        <p><strong>Yleisö:</strong> Yrittäjät, johtajat, asiantuntijat, esihenkilöt ja myyjät. Valmennus voidaan toteuttaa luentona taikka puolenpäivän valmennuksena.</p>
+
+        <a href="#" class="cta-button">Pyydä tarjous</a>
     </div>
 
-    <div id="johda-itsesi" class="hidden">
+    <!-- ✅ Johtaminen -->
+    <div id="johda-itsesi" class="card hidden">
         <h1>Johda itseäsi -valmennus</h1>
-        <ul>
+        <ul class="content-list">
             <li>Aseta tavoitteet oikein</li>
             <li>Toimintasuunnitelma</li>
             <li>7 toimintamallia tavoitteiden ja toiminnan taustalla</li>
         </ul>
     </div>
 
-    <div id="esiintymisvalmennus" class="hidden">
+    <!-- ✅ Esiintymisvalmennus -->
+    <div id="esiintymisvalmennus" class="card hidden">
         <h1>Esiintymis- ja puhevalmennus</h1>
-        <ul>
+        <ul class="content-list">
             <li>Puheen rakentamisen lainalaisuudet</li>
             <li>Puheen rakenne</li>
             <li>Tarinankerronnan voima</li>
@@ -132,13 +196,11 @@
 
   </div>
 
-  <!-- JS välilehtien hallintaan -->
+  <!-- ✅ Välilehtien hallinta -->
   <script>
     function showSection(sectionId) {
-        document.getElementById('myyntivalmennus').style.display = 'none';
-        document.getElementById('johda-itsesi').style.display = 'none';
-        document.getElementById('esiintymisvalmennus').style.display = 'none';
-        document.getElementById(sectionId).style.display = 'block';
+        document.querySelectorAll('.content > div').forEach(div => div.classList.add('hidden'));
+        document.getElementById(sectionId).classList.remove('hidden');
     }
   </script>
 
