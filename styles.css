@@ -100,3 +100,55 @@ ul li:before {
         margin: 10px;
     }
 }
+/* Korttimalli */
+.card {
+  background: white;
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+/* Listat viivalla */
+.content-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.content-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+}
+
+.content-list li:last-child {
+  border-bottom: none;
+}
+
+.content-list li::before {
+  content: '✔️';
+  margin-right: 10px;
+  color: green;
+}
+
+/* Napin tyyli */
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #357edd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.cta-button:hover {
+  background: #285bb5;
+}
