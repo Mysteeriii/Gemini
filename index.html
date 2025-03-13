@@ -5,133 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Henri Rantanen - Valmennukset</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-    header { background: white; padding: 20px; display: flex; justify-content: space-around; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; }
-    header a { text-decoration: none; color: black; font-weight: bold; padding: 10px 20px; }
-    header a:hover { background: #e0e0e0; border-radius: 5px; }
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #f9f9f9; 
+    }
+
+    /* 🔵 Uusi banneri */
+    .banner {
+        background: linear-gradient(90deg, #22c1c3, #7b1fa2); /* Liukuväri */
+        padding: 10px 20px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav-links a:hover {
+        text-decoration: underline;
+    }
+
+    .button {
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .profile-img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin-left: 15px;
+        border: 2px solid white;
+    }
+
+    .right-section {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* 🔴 Muut sisällöt */
     .content { padding: 20px; max-width: 800px; margin: auto; }
     h1 { text-align: center; }
     ul { list-style: none; padding: 0; }
     ul li:before { content: '✔️'; margin-right: 10px; }
     .hidden { display: none; }
+
   </style>
 </head>
 <body>
 
-<header>
-  <a href="#" onclick="showTab('myynti')">Myyntivalmennus</a>
-  <a href="#" onclick="showTab('johtaminen')">Johda itseäsi</a>
-  <a href="#" onclick="showTab('esiintyminen')">Esiintymisvalmennus</a>
-</header>
-
-<div class="content">
-  <div id="myynti">
-    <h1>Myyntivalmennus</h1>
-    <p>Myyntiä ja myynnin psykologiaa on tutkittu valtavasti...</p>
-    <h3>Valmennuksen sisältö:</h3>
-    <ul>
-      <li>Myynnin 7 lainalaisuutta</li>
-      <li>Asenne ja sisäinen puhe</li>
-      <li>Tavoitteet ja ajanhallinta</li>
-      <li>Uusasiakashankinta strategiat</li>
-      <li>Asiantuntemus tuotteeseen</li>
-      <li>Kyky toimia kaikkien kanssa</li>
-      <li>Esittely ja myyntitaidot</li>
-      <li>Kaupan kloussaus taidot</li>
-      <li>Kommunikoinnin 10 sääntöä</li>
-    </ul>
+  <!-- 🔵 UUSI BANNERI TÄHÄN -->
+  <div class="banner">
+      <div class="nav-links">
+          <a href="#" onclick="showSection('myyntivalmennus')">Myyntivalmennus</a>
+          <a href="#" onclick="showSection('johda-itsesi')">Johda itseäsi</a>
+          <a href="#" onclick="showSection('esiintymisvalmennus')">Esiintymisvalmennus</a>
+      </div>
+      <div class="right-section">
+          <button class="button">Esitä</button>
+          <button class="button">Jakaminen</button>
+          <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Profiilikuva" class="profile-img">
+      </div>
   </div>
 
-  <div id="johtaminen" class="hidden">
-    <h1>Johda itseäsi -valmennus</h1>
-    <p>Ei ne tavoitteet vaan toimintamallit tavoitteiden taustalla...</p>
-    <h3>Valmennuksen sisältö:</h3>
-    <ul>
-      <li>Aseta tavoitteet oikein</li>
-      <li>Toimintasuunnitelma</li>
-      <li>7 toimintamallia tavoitteiden ja toiminnan taustalla</li>
-    </ul>
+  <!-- SISÄLLÖT ALKAVAT -->
+  <div class="content">
+
+    <div id="myyntivalmennus">
+        <h1>Myyntivalmennus</h1>
+        <ul>
+            <li>Myynnin 7 lainalaisuutta</li>
+            <li>Asenne ja sisäinen puhe</li>
+            <li>Tavoitteet ja ajanhallinta</li>
+            <li>Uusasiakashankinta strategiat</li>
+            <li>Asiantuntemus tuotteeseen</li>
+            <li>Kyky toimia kaikkien kanssa</li>
+            <li>Esittely ja myyntitaidot</li>
+            <li>Kaupan kloussaus taidot</li>
+            <li>Kommunikoinnin 10 sääntöä</li>
+        </ul>
+    </div>
+
+    <div id="johda-itsesi" class="hidden">
+        <h1>Johda itseäsi -valmennus</h1>
+        <ul>
+            <li>Aseta tavoitteet oikein</li>
+            <li>Toimintasuunnitelma</li>
+            <li>7 toimintamallia tavoitteiden ja toiminnan taustalla</li>
+        </ul>
+    </div>
+
+    <div id="esiintymisvalmennus" class="hidden">
+        <h1>Esiintymis- ja puhevalmennus</h1>
+        <ul>
+            <li>Puheen rakentamisen lainalaisuudet</li>
+            <li>Puheen rakenne</li>
+            <li>Tarinankerronnan voima</li>
+            <li>Tarinankerronnan kaava</li>
+            <li>Palaverin rakenne</li>
+            <li>Esiintymistekniikat</li>
+            <li>Esiintymisjännityksen selättäminen</li>
+        </ul>
+    </div>
+
   </div>
 
-  <div id="esiintyminen" class="hidden">
-    <h1>Esiintymis- ja puhevalmennus</h1>
-    <p>Ei mitä sanot, vaan miten sanot!</p>
-    <h3>Valmennuksen sisältö:</h3>
-    <ul>
-      <li>Puheen rakentamisen lainalaisuudet</li>
-      <li>Puheen rakenne</li>
-      <li>Tarinankerronnan voima</li>
-      <li>Tarinankerronnan kaava</li>
-      <li>Palaverin rakenne</li>
-      <li>Esiintymistekniikat</li>
-      <li>Esiintymisjännityksen selättäminen</li>
-    </ul>
-  </div>
-</div>
-
-<script>
-  function showTab(id) {
-    document.querySelectorAll('.content > div').forEach(div => div.classList.add('hidden'));
-    document.getElementById(id).classList.remove('hidden');
-  }
-</script>
-
-</body>
-</html>
-
-<!-- Navigaatio uuteen valmennusosioon -->
-<nav>
-    <a href="#" onclick="showSection('myyntivalmennus')">Myyntivalmennus</a>
-    <a href="#" onclick="showSection('johda-itsesi')">Johda itseäsi</a>
-    <a href="#" onclick="showSection('esiintymisvalmennus')">Esiintymisvalmennus</a>
-</nav>
-
-<!-- Valmennusosio 1 -->
-<div class="container" id="myyntivalmennus">
-    <h1>Myyntivalmennus</h1>
-    <ul>
-        <li>Myynnin 7 lainalaisuutta</li>
-        <li>Asenne ja sisäinen puhe</li>
-        <li>Tavoitteet ja ajanhallinta</li>
-        <li>Uusasiakashankinta strategiat</li>
-        <li>Asiantuntemus tuotteeseen</li>
-        <li>Kyky toimia kaikkien kanssa</li>
-        <li>Esittely ja myyntitaidot</li>
-        <li>Kaupan kloussaus taidot</li>
-        <li>Kommunikoinnin 10 sääntöä</li>
-    </ul>
-</div>
-
-<!-- Valmennusosio 2 -->
-<div class="container" id="johda-itsesi" style="display:none;">
-    <h1>Johda itseäsi -valmennus</h1>
-    <ul>
-        <li>Aseta tavoitteet oikein</li>
-        <li>Toimintasuunnitelma</li>
-        <li>7 toimintamallia tavoitteiden ja toiminnan taustalla</li>
-    </ul>
-</div>
-
-<!-- Valmennusosio 3 -->
-<div class="container" id="esiintymisvalmennus" style="display:none;">
-    <h1>Esiintymis- ja puhevalmennus</h1>
-    <ul>
-        <li>Puheen rakentamisen lainalaisuudet</li>
-        <li>Puheen rakenne</li>
-        <li>Tarinankerronnan voima</li>
-        <li>Tarinankerronnan kaava</li>
-        <li>Palaverin rakenne</li>
-        <li>Esiintymistekniikat</li>
-        <li>Esiintymisjännityksen selättäminen</li>
-    </ul>
-</div>
-
-<!-- Välilehtien hallintaan JS -->
-<script>
+  <!-- JS välilehtien hallintaan -->
+  <script>
     function showSection(sectionId) {
         document.getElementById('myyntivalmennus').style.display = 'none';
         document.getElementById('johda-itsesi').style.display = 'none';
         document.getElementById('esiintymisvalmennus').style.display = 'none';
         document.getElementById(sectionId).style.display = 'block';
     }
-</script>
+  </script>
+
+</body>
+</html>
